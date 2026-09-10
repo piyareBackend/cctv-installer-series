@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CCTV Security Vision — professional CCTV installation, surveillance systems, maintenance and security solutions.">
+  <meta name="theme-color" content="#07111f">
+  <title>CCTV Security Vision | Smart Surveillance. Real Protection.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="CCTV Security Vision home">
+      <span class="brand-mark">CV</span>
+      <span>CCTV <b>Security Vision</b></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#services">Services</a><a href="#solutions">Solutions</a><a href="#process">Process</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#booking">Book Service</a>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> PROFESSIONAL SURVEILLANCE SOLUTIONS</div>
+        <h1>See more.<br><span>Secure better.</span></h1>
+        <p class="hero-text">Reliable CCTV installation and security systems built for homes, shops, offices and commercial spaces.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#booking">Book a Site Visit <span>→</span></a>
+          <button class="btn secondary" type="button" id="secureCall">Call Securely</button>
+        </div>
+        <div class="trust-row"><span>✓ Professional installation</span><span>✓ Service support</span><span>✓ Privacy-conscious setup</span></div>
+      </div>
+      <div class="hero-visual" aria-label="CCTV surveillance preview">
+        <div class="camera-card">
+          <div class="camera-top"><span>LIVE VIEW</span><span class="live"><i></i> ACTIVE</span></div>
+          <div class="camera-scene"><div class="scan"></div><div class="camera-lens"></div><div class="hud">CAM 04<br><small>1080P • NIGHT VISION</small></div></div>
+          <div class="camera-bottom"><span>Protected perimeter</span><span>24 / 7</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats"><div><strong>24/7</strong><span>Monitoring-ready systems</span></div><div><strong>HD+</strong><span>Clear surveillance</span></div><div><strong>AMC</strong><span>Maintenance support</span></div><div><strong>1</strong><span>Single security partner</span></div></section>
+
+    <section id="services" class="section">
+      <div class="section-head"><div><div class="eyebrow">WHAT WE DO</div><h2>Security that works<br>when you need it.</h2></div><p>From the first camera to a complete surveillance network, we plan, install and support systems around your actual space.</p></div>
+      <div class="service-grid">
+        <article><span class="icon">◉</span><h3>CCTV Installation</h3><p>Site planning, camera placement, cabling and clean professional installation.</p><a href="#booking">Request installation →</a></article>
+        <article><span class="icon">▣</span><h3>DVR / NVR Systems</h3><p>Secure recording infrastructure with practical storage and remote-access options.</p><a href="#booking">Build a system →</a></article>
+        <article><span class="icon">↻</span><h3>Maintenance & AMC</h3><p>Routine checks, troubleshooting and maintenance to keep your setup dependable.</p><a href="#booking">Book maintenance →</a></article>
+        <article><span class="icon">⌁</span><h3>Smart Surveillance</h3><p>Modern cameras and alert-ready setups designed around your security priorities.</p><a href="#booking">Discuss your needs →</a></article>
+      </div>
+    </section>
+
+    <section id="solutions" class="section dark-section">
+      <div class="eyebrow">BUILT FOR REAL PLACES</div><h2>One security setup.<br>Different environments.</h2>
+      <div class="solution-grid"><div><b>HOME</b><span>Entrances, parking, gates & common areas</span></div><div><b>BUSINESS</b><span>Shops, offices, warehouses & cash points</span></div><div><b>COMMERCIAL</b><span>Large sites, multiple cameras & recording</span></div></div>
+    </section>
+
+    <section id="process" class="section process"><div class="section-head"><div><div class="eyebrow">SIMPLE PROCESS</div><h2>From concern to coverage.</h2></div><p>No confusing sales maze. Tell us what you need, we assess the space, recommend a practical setup and schedule the work.</p></div><div class="steps"><div><span>01</span><h3>Tell us</h3><p>Share your requirement and preferred visit time.</p></div><div><span>02</span><h3>Site assessment</h3><p>We understand coverage points, access and infrastructure.</p></div><div><span>03</span><h3>Install</h3><p>Professional installation with a clean handover.</p></div><div><span>04</span><h3>Stay protected</h3><p>Get support and maintenance when required.</p></div></div></section>
+
+    <section id="booking" class="booking-section">
+      <div class="booking-copy"><div class="eyebrow">BOOK A SERVICE</div><h2>Tell us what needs protecting.</h2><p>Submit your details. A security representative can contact you to confirm the requirement and appointment.</p><div class="privacy-note">🔒 Your contact number is not displayed publicly on this website.</div></div>
+      <form id="bookingForm" class="booking-form">
+        <label>Name<input name="name" required autocomplete="name" placeholder="Your name"></label>
+        <label>Phone number<input name="phone" required autocomplete="tel" inputmode="tel" placeholder="Your mobile number"></label>
+        <label>Service<select name="service"><option>CCTV Installation</option><option>Maintenance / AMC</option><option>DVR / NVR</option><option>Site inspection</option><option>Other</option></select></label>
+        <label>Preferred time<select name="time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label>
+        <label class="full">Requirement<textarea name="message" rows="4" placeholder="Tell us about the site or problem"></textarea></label>
+        <button class="btn primary full" type="submit">Request Secure Callback <span>→</span></button>
+        <p class="form-note" id="formMessage" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="contact"><div class="brand"><span class="brand-mark">CV</span><span>CCTV <b>Security Vision</b></span></div><p>Professional surveillance solutions for safer spaces.</p><span class="protected">Contact details protected • © 2026</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
