@@ -1,0 +1,18 @@
+name = "security-vision"
+main = "worker/index.js"
+compatibility_date = "2026-09-15"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "security-vision"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "."
+
+[vars]
+PUBLIC_ORIGIN = "https://YOUR-PRODUCTION-DOMAIN.example"
+ADMIN_GOOGLE_EMAIL = "change-this@gmail.com"
+DRIVE_FOLDER_ID = "REPLACE_WITH_DRIVE_FOLDER_ID"
