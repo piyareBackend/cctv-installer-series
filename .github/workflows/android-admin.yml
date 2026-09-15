@@ -1,0 +1,26 @@
+name: Build Security Vision Admin APK
+on:
+  workflow_dispatch:
+    inputs:
+      admin_url:
+        description: 'Production admin URL'
+        required: true
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build debug APK
+        working-directory: admin-android
+        run: gradle :app:assembleDebug -PADMIN_URL="${{ inputs.admin_url }}"
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-vision-admin-debug-apk
+          path: admin-android/app/build/outputs/apk/debug/app-debug.apk
