@@ -1,60 +1,7 @@
-const CALL_NUMBER = "9608232914";
-
-// Keep all call controls in one place so the business number can be changed once.
-document.querySelectorAll('[data-action="call"]').forEach((button) => {
-  button.addEventListener('click', () => {
-    window.location.href = `tel:${CALL_NUMBER}`;
-  });
-});
-
-// Prevent selecting a date in the past.
-const dateInput = document.querySelector('input[name="date"]');
-if (dateInput) {
-  const now = new Date();
-  const localDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-  dateInput.min = localDate;
-}
-
-// Booking form: works with a future /api/bookings endpoint and remains usable as a demo until that endpoint exists.
-const bookingForm = document.getElementById('bookingForm');
-const formMsg = document.getElementById('formMsg');
-if (bookingForm && formMsg) {
-  bookingForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const submit = bookingForm.querySelector('button[type="submit"]');
-    const data = Object.fromEntries(new FormData(bookingForm));
-    if (!data.name || !data.phone) return;
-    submit.disabled = true;
-    formMsg.textContent = 'Sending request…';
-    try {
-      const response = await fetch('/api/bookings', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-      });
-      if (!response.ok) throw new Error('Booking endpoint unavailable');
-      formMsg.textContent = 'Booking request received. We’ll contact you shortly.';
-      bookingForm.reset();
-    } catch {
-      formMsg.textContent = 'Booking form is ready. Connect /api/bookings to your production backend or CRM.';
-    } finally {
-      submit.disabled = false;
-    }
-  });
-}
-
-// Lightweight scroll reveal; no library or tracking dependency.
-const revealItems = document.querySelectorAll('.cards article, .feature-grid > div, .gallery-item, .steps > div, .solution-grid > div');
-if ('IntersectionObserver' in window && revealItems.length) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    });
-  }, {threshold: 0.08});
-  revealItems.forEach((item) => {
-    item.classList.add('reveal');
-    observer.observe(item);
-  });
-}
+const CALL_NUMBER="9608232914";document.querySelectorAll('[data-action="call"]').forEach(b=>b.addEventListener('click',()=>location.href=`tel:${CALL_NUMBER}`));
+const dateInput=document.querySelector('input[name="date"]');if(dateInput){const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());dateInput.min=d.toISOString().slice(0,10)}
+const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+async function loadCMS(){try{const r=await fetch('/api/site',{headers:{accept:'application/json'}});if(!r.ok)throw 0;const d=await r.json();const social=d.settings?.social||{};document.querySelectorAll('[data-social]').forEach(a=>{const u=social[a.dataset.social];if(u){a.href=u;a.target='_blank';a.rel='noopener noreferrer';a.hidden=false}else a.hidden=true});const items=d.media||[];if(items.length){const grid=document.querySelector('.gallery-grid');grid.innerHTML=items.map((m,i)=>`<figure class="gallery-item"><div class="gallery-art media-art" style="aspect-ratio:${frameRatio(m.frame_type)};border-radius:${Number(m.radius||18)}px"><${m.mime_type.startsWith('video/')?'video controls playsinline':'img'} src="${esc(m.public_url)}" ${m.mime_type.startsWith('video/')?'':'alt="'+esc(m.alt||m.name)+'"'} style="object-position:${Number(m.focus_x||50)}% ${Number(m.focus_y||50)}%;transform:scale(${Number(m.zoom||1)})" loading="lazy"></${m.mime_type.startsWith('video/')?'video':'img'}></div><figcaption><strong>${esc(m.caption||m.name)}</strong><small>${esc(m.category||'Security Vision')}</small></figcaption></figure>`).join('')}}catch(e){/* static fallback remains usable */}}
+function frameRatio(t){return({portrait:'4/5',landscape:'16/9',square:'1/1',story:'9/16',wide:'21/9','3x2':'3/2','4x3':'4/3'})[t]||'16/10'}
+const bookingForm=document.getElementById('bookingForm'),formMsg=document.getElementById('formMsg');if(bookingForm&&formMsg)bookingForm.addEventListener('submit',async e=>{e.preventDefault();const submit=bookingForm.querySelector('button[type="submit"]'),data=Object.fromEntries(new FormData(bookingForm));if(!data.name||!data.phone)return;submit.disabled=true;formMsg.textContent='Sending request…';try{const r=await fetch('/api/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw 0;formMsg.textContent='Booking request received. We’ll contact you shortly.';bookingForm.reset()}catch{formMsg.textContent='Could not send right now. Please call Security Vision directly.'}finally{submit.disabled=false}});
+const revealItems=document.querySelectorAll('.cards article,.feature-grid>div,.gallery-item,.steps>div,.solution-grid>div');if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');observer.unobserve(x.target)}}),{threshold:.08});revealItems.forEach(x=>{x.classList.add('reveal');observer.observe(x)})}loadCMS();
