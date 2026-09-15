@@ -10,7 +10,6 @@ binding = "ASSETS"
 binding = "DB"
 database_name = "security-vision"
 database_id = "REPLACE_WITH_D1_DATABASE_ID"
-migrations_dir = "."
 
 [vars]
 PUBLIC_ORIGIN = "https://YOUR-PRODUCTION-DOMAIN.example"
